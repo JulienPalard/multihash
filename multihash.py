@@ -21,8 +21,8 @@ class Known_Hashes(Enum):
 
 
 class _Hash(object):
-    """Drop in replacement for of an hashlib hash object, prefixing update
-    and hexupdate with multihash header.
+    """Drop in replacement for a hashlib hash object, prefixing digest
+    and hexdigest with multihash header.
     """
     def __init__(self, known_hash, data=b''):
         self.known_hash = known_hash

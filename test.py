@@ -50,5 +50,13 @@ class TestMultiHash(unittest.TestCase):
         self.assertEqual(multihash.blake2s().known_hash,
                          multihash.new('blake2s').known_hash)
 
+    def test_copy(self):
+        mh1 = multihash.new('sha3')
+        mh1.update(b'foo')
+        mh2 = mh1.copy()
+        self.assertEqual(mh1.hexdigest(), mh2.hexdigest())
+        mh2.update(b'bar')
+        self.assertNotEqual(mh1.hexdigest(), mh2.hexdigest())
+
 if __name__ == '__main__':
     unittest.main()

@@ -66,7 +66,7 @@ class _Hash(object):
         initial substring.
         """
         clone = _Hash(self.known_hash)
-        clone.implem = self.implem
+        clone.implem = self.implem.copy()
         return clone
 
 
